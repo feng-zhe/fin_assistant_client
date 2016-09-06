@@ -34,7 +34,7 @@ gulp.task('less', function(done) {
 
 // compile react (just for index.js now)
 gulp.task('react', function(done) {
-    return gulp.src('./src/js/react/index.js', {
+    return gulp.src(['./src/js/react/*.js','!./src/js/react/components.js'], {
             read: false
         })
         .pipe(gTap(function(file) {

@@ -20,16 +20,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // default home page
 app.get('/', function(req, res, next) {
-    res.sendFile('views/index.html', {
+    res.sendFile('views/app.html', {
         root: __dirname
     });
 });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    res.sendFile('views/not_found.html', {
-        root: __dirname
-    });
+    const err = new Error('not found');
+    err.status = 404;
+    next(err);
+});
+app.use(function(err, req, res, next) {
+    console.log('error handling ' + err);
+    res.status(err.status);
+    res.sendFile('not supported');
 });
 
-module.exports = app;
+app.listen(3000);

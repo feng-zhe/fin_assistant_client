@@ -1,6 +1,5 @@
 'use strict';
 
-
 // note that we have to use "React" and "ReactDOM"
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -12,6 +11,7 @@ class Home extends React.Component {
     }
     render() {
         return (
+            <h1> hello world </h1>
         );
     }
 }
