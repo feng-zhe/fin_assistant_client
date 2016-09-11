@@ -1,23 +1,24 @@
 'use strict';
 
 // note that we have to use "React" and "ReactDOM"
-var React = require('react');
-var ReactDOM = require('react-dom');
-var $ = require('jquery');
+const React = require('react');
+const ReactDOM = require('react-dom');
+const $ = require('jquery');
+const Jobs = require('./jobs');
 
-class Home extends React.Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
         return (
-            <h1> hello world </h1>
+            <Jobs />
         );
     }
 }
 
 $('document').ready(function() {
     ReactDOM.render(
-        <Home />,
+        <App />,
         document.getElementById('root'));
 });

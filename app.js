@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
-var express = require('express');
-var path = require('path');
-var morgan = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var app = express();
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const api = require('./router/api');
+const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 
@@ -24,6 +24,9 @@ app.get('/', function(req, res, next) {
         root: __dirname
     });
 });
+
+// the api hub
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

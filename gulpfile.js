@@ -15,6 +15,16 @@ var fs = require('fs');
 var del = require('del');
 var lessclean = require('less-plugin-clean-css');
 
+/****************************** main tasks ******************************/
+// default
+gulp.task('default', ['build-pro']);
+
+// clean the generated and temp files
+gulp.task('clean', function() {
+    return del(['public/*']);
+});
+
+/****************************** supporting tasks ******************************/
 // before hook
 gulp.task('build-start', function() {});
 
@@ -34,7 +44,7 @@ gulp.task('less', function(done) {
 
 // compile react (just for index.js now)
 gulp.task('react', function(done) {
-    return gulp.src(['./src/js/react/*.js','!./src/js/react/components.js'], {
+    return gulp.src(['./src/js/react/app.js'], {
             read: false
         })
         .pipe(gTap(function(file) {
@@ -74,10 +84,4 @@ gulp.task('build-dev', function(done) {
         done();
     });
 });
-// default build
-gulp.task('build', ['build-dev']);
 
-// clean the generated and temp files
-gulp.task('clean', function() {
-    return del(['public/*']);
-});
