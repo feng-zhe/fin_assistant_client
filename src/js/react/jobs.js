@@ -1,3 +1,7 @@
+/*
+ * This file contains the page for display jobs
+ */
+
 'use strict';
 
 // note that we have to use "React" and "ReactDOM"
@@ -5,10 +9,13 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const $ = require('jquery');
 
-class Jobs extends React.Component {
+// the jobs page
+class JobsPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            jobs: []
+        };
         $.post('/api/jobs', {
                 accountId: 'test'
             })
@@ -20,7 +27,7 @@ class Jobs extends React.Component {
     }
     render() {
         return (
-            <JobList />
+            <JobList jobs={this.state.jobs}/>
         );
     }
 }
@@ -31,9 +38,28 @@ class JobList extends React.Component {
     }
     render() {
         return (
-            <h1>hello world</h1>
+            <div className="joblist">
+            {
+                this.props.jobs.map(function(obj){
+                    return (
+                        <JobListEntry />
+                    );
+                })
+            }
+            </div>
         );
     }
 }
 
-module.exports = Jobs;
+class JobListEntry extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <h1>Hello World</h1>
+        );
+    }
+}
+
+module.exports = JobsPage;

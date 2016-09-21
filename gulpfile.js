@@ -19,6 +19,9 @@ var lessclean = require('less-plugin-clean-css');
 // default
 gulp.task('default', ['build-pro']);
 
+// build
+gulp.task('build', ['build-pro']);
+
 // clean the generated and temp files
 gulp.task('clean', function() {
     return del(['public/*']);

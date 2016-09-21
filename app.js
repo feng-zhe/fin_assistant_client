@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
     console.log('error handling ' + err);
     res.status(err.status);
-    res.sendFile('not supported');
+    res.send('not supported');
 });
 
 app.listen(3000);

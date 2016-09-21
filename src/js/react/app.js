@@ -4,7 +4,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const $ = require('jquery');
-const Jobs = require('./jobs');
+const JobsPage = require('./jobs');
 
 class App extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class App extends React.Component {
     }
     render() {
         return (
-            <Jobs />
+            <JobsPage />
         );
     }
 }
