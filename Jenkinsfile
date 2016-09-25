@@ -1,6 +1,6 @@
 node {
     stage "prerequisites"
-    git url: "/home/git/projects/fin_assistant_data.git"
+    git url: "/home/git/projects/fin_assistant_client.git"
     def nodeHome = tool 'node-lts'
 
     stage "build"
