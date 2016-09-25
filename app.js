@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const api = require('./router/api');
-const app = express();
+const app = express(); 
 
 app.set('views', path.join(__dirname, 'views'));
 
